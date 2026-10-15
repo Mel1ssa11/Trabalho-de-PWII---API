@@ -1,0 +1,234 @@
+:root {
+    --papel: #EAF0F2;
+    --tinta: #0E2A3B;
+    --mar: #1B4F72;
+    --cobalto: #2457D6;
+    --suave: #5B7384;
+    --linha: #C5D3DA;
+    --branco: #FFFFFF;
+    --erro: #B3261E;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Instrument Sans", "Segoe UI", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--tinta);
+    background: var(--papel);
+}
+
+.oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+.topo {
+    background-color: var(--mar);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .07) 1px, transparent 1px);
+    background-size: 48px 48px;
+    color: var(--branco);
+    padding: 72px 24px 80px;
+}
+
+.topo-conteudo {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+}
+
+.subtitulo {
+    margin: 0 0 36px;
+    max-width: 48ch;
+    color: #CFE0EA;
+}
+
+.busca {
+    display: flex;
+    gap: 0;
+    background: var(--branco);
+    border-radius: 12px;
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(5, 20, 33, .35);
+}
+
+.busca input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 1.1rem;
+    padding: 14px 16px;
+    color: var(--tinta);
+}
+
+.busca input::placeholder {
+    color: #8AA0AE;
+}
+
+.busca button {
+    border: 0;
+    border-radius: 8px;
+    background: var(--cobalto);
+    color: var(--branco);
+    font: inherit;
+    font-weight: 600;
+    padding: 0 28px;
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.busca button:hover {
+    background: #1B43B0;
+}
+
+.busca:focus-within {
+    outline: 3px solid #9DB8FF;
+}
+
+.busca button:focus-visible {
+    outline: 3px solid var(--tinta);
+    outline-offset: 2px;
+}
+
+.principal {
+    max-width: 920px;
+    margin: -32px auto 0;
+    padding: 0 24px 64px;
+}
+
+.aviso {
+    background: var(--branco);
+    border-left: 4px solid var(--cobalto);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 0;
+    color: var(--suave);
+}
+
+.aviso.erro {
+    border-left-color: var(--erro);
+    color: var(--erro);
+    font-weight: 500;
+}
+
+.pais {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    align-items: start;
+    background: var(--branco);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 0 var(--linha);
+}
+
+.bandeira {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(14, 42, 59, .25);
+}
+
+h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.oficial {
+    margin: 6px 0 26px;
+    color: var(--suave);
+}
+
+dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 28px;
+}
+
+dl > div {
+    border-top: 1px solid var(--linha);
+    padding: 14px 0 16px;
+}
+
+dl > .largo {
+    grid-column: 1 / -1;
+}
+
+dt {
+    font-size: .85rem;
+    color: var(--suave);
+    margin-bottom: 2px;
+}
+
+dd {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.rodape {
+    text-align: center;
+    padding: 0 24px 40px;
+    color: var(--suave);
+    font-size: .9rem;
+}
+
+.rodape p {
+    margin: 0;
+}
+
+@media (max-width: 720px) {
+    .topo {
+        padding: 48px 20px 64px;
+    }
+
+    .pais {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .bandeira {
+        max-width: 280px;
+    }
+
+    dl {
+        grid-template-columns: 1fr;
+    }
+
+    .busca button {
+        padding: 0 20px;
+    }
+}
+
+.busca button:disabled {
+    background: var(--suave);
+    cursor: wait;
+}
